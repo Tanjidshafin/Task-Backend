@@ -32,6 +32,11 @@ async function run() {
       res.send(result);
     });
     //task add
+    app.post('/tasks', async (req, res) => {
+      const data = req.body;
+      const result = await taskCollection.insertOne(data);
+      res.send(result);
+    });
     
   } finally {
     // Ensures that the client will close when you finish/error
